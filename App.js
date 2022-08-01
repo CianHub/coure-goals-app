@@ -20,7 +20,7 @@ export default function App() {
   const addGoalHandler = () => {
     setGoals((currentGoals) => [
       ...currentGoals,
-      { text: goalText, key: Math.random().toString() },
+      { text: goalText, id: Math.random().toString() },
     ]);
     setGoalText('');
   };
@@ -38,6 +38,7 @@ export default function App() {
       </View>
       <View style={styles.goalsContainer}>
         <FlatList
+          keyExtractor={(item) => item.id}
           data={goals}
           renderItem={(itemData) => {
             return (
