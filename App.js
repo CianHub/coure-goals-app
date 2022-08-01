@@ -4,17 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          margin: 1,
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: 'red',
-          padding: 10,
-        }}
-      >
-        Hi
-      </Text>
+      <Text style={styles.test}>Hi</Text>
       <Button
         title="Go to Details"
         onPress={() => {
@@ -31,5 +21,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  test: {
+    margin: 1,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'red',
+    padding: 10,
   },
 });
