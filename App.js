@@ -18,7 +18,10 @@ export default function App() {
     setGoalText(enteredText);
   };
   const addGoalHandler = () => {
-    setGoals((currentGoals) => [...currentGoals, goalText]);
+    setGoals((currentGoals) => [
+      ...currentGoals,
+      { text: goalText, key: Math.random().toString() },
+    ]);
     setGoalText('');
   };
 
@@ -39,7 +42,7 @@ export default function App() {
           renderItem={(itemData) => {
             return (
               <View style={styles.goalItem}>
-                <Text style={styles.goalText}>{itemData.item}</Text>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
               </View>
             );
           }}
