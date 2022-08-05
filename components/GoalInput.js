@@ -66,8 +66,11 @@ const styles = StyleSheet.create({
     borderColor: 'lightgray',
     width: '100%',
     padding: 8,
-    backgroundColor: 'white',
-    color: '#311b6b',
+    backgroundColor: '#e4d0ff',
+    borderRadius: 6,
+    color: '#120138',
+    borderColor: '#e4d0ff',
+    padding: 16,
   },
   image: {
     width: 100,
