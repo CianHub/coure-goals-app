@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import { GoalInput } from './components/GoalInput';
 import { GoalItem } from './components/GoalItem';
 
 export default function App() {
   const [goalText, setGoalText] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const [goals, setGoals] = useState([]);
   const deleteGoalHandler = (goalId) => {
     setGoals((currentGoals) => {
@@ -15,21 +16,32 @@ export default function App() {
   const goalInputHandler = (enteredText) => {
     setGoalText(enteredText);
   };
+
   const addGoalHandler = () => {
     setGoals((currentGoals) => [
       ...currentGoals,
       { text: goalText, id: Math.random().toString() },
     ]);
     setGoalText('');
+    setShowModal(false);
   };
+
+  const startAddGoalHandler = () => setShowModal(true);
 
   return (
     <View style={styles.appContainer}>
-      <GoalInput
-        addGoalHandler={addGoalHandler}
-        goalInputHandler={goalInputHandler}
-        goalText={goalText}
+      <Button
+        title="Add New Goal"
+        onPress={startAddGoalHandler}
+        color="#5e0acc"
       />
+      {showModal && (
+        <GoalInput
+          addGoalHandler={addGoalHandler}
+          goalInputHandler={goalInputHandler}
+          goalText={goalText}
+        />
+      )}
       <View style={styles.goalsContainer}>
         <FlatList
           keyExtractor={(item) => item.id}
