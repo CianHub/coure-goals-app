@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     borderBottomWidth: 1,
     borderBottomColor: 'lightgrey',
+    padding: 16,
   },
   inputButtons: {
     flexDirection: 'row',
@@ -49,8 +50,7 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: 'lightgray',
-    width: '70%',
-    marginRight: 8,
+    width: '100%',
     padding: 8,
   },
 });
