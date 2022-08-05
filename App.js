@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList, Button, Image } from 'react-native';
 import { GoalInput } from './components/GoalInput';
 import { GoalItem } from './components/GoalItem';
 
@@ -37,6 +37,7 @@ export default function App() {
         onPress={startAddGoalHandler}
         color="#5e0acc"
       />
+
       <GoalInput
         showModal={showModal}
         addGoalHandler={addGoalHandler}
