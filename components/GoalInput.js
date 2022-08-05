@@ -40,9 +40,10 @@ const styles = StyleSheet.create({
   },
   inputButtons: {
     flexDirection: 'row',
+    marginTop: 16,
   },
   button: {
-    width: '40%',
+    width: '30%',
     marginHorizontal: 8,
   },
   textInput: {
