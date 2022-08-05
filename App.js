@@ -6,6 +6,11 @@ import { GoalItem } from './components/GoalItem';
 export default function App() {
   const [goalText, setGoalText] = useState('');
   const [goals, setGoals] = useState([]);
+  const deleteGoalHandler = (goalId) => {
+    setGoals((currentGoals) => {
+      return currentGoals.filter((goal) => goal.id !== goalId);
+    });
+  };
 
   const goalInputHandler = (enteredText) => {
     setGoalText(enteredText);
@@ -30,7 +35,12 @@ export default function App() {
           keyExtractor={(item) => item.id}
           data={goals}
           renderItem={(itemData) => {
-            return <GoalItem itemData={itemData} />;
+            return (
+              <GoalItem
+                itemData={itemData}
+                deleteGoalHandler={() => deleteGoalHandler(itemData.item.id)}
+              />
+            );
           }}
           alwaysBounceVertical={false}
         />
