@@ -1,8 +1,13 @@
 import { Text, View, StyleSheet, TextInput, Button, Modal } from 'react-native';
 
-export const GoalInput = ({ addGoalHandler, goalInputHandler, goalText }) => {
+export const GoalInput = ({
+  addGoalHandler,
+  goalInputHandler,
+  goalText,
+  showModal,
+}) => {
   return (
-    <Modal>
+    <Modal visible={showModal} animationType={'slide'}>
       <View style={styles.inputContainer}>
         <TextInput
           value={goalText}

@@ -35,13 +35,13 @@ export default function App() {
         onPress={startAddGoalHandler}
         color="#5e0acc"
       />
-      {showModal && (
-        <GoalInput
-          addGoalHandler={addGoalHandler}
-          goalInputHandler={goalInputHandler}
-          goalText={goalText}
-        />
-      )}
+      <GoalInput
+        showModal={showModal}
+        addGoalHandler={addGoalHandler}
+        goalInputHandler={goalInputHandler}
+        goalText={goalText}
+      />
+
       <View style={styles.goalsContainer}>
         <FlatList
           keyExtractor={(item) => item.id}
