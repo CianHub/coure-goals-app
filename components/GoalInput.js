@@ -5,6 +5,7 @@ export const GoalInput = ({
   goalInputHandler,
   goalText,
   showModal,
+  endAddGoalHandler,
 }) => {
   return (
     <Modal visible={showModal} animationType={'slide'}>
@@ -20,7 +21,7 @@ export const GoalInput = ({
             <Button title="Add Goal" onPress={addGoalHandler} />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" />
+            <Button title="Cancel" onPress={endAddGoalHandler} />
           </View>
         </View>
       </View>

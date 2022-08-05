@@ -23,10 +23,12 @@ export default function App() {
       { text: goalText, id: Math.random().toString() },
     ]);
     setGoalText('');
-    setShowModal(false);
+    endAddGoalHandler();
   };
 
   const startAddGoalHandler = () => setShowModal(true);
+
+  const endAddGoalHandler = () => setShowModal(false);
 
   return (
     <View style={styles.appContainer}>
@@ -40,6 +42,7 @@ export default function App() {
         addGoalHandler={addGoalHandler}
         goalInputHandler={goalInputHandler}
         goalText={goalText}
+        endAddGoalHandler={endAddGoalHandler}
       />
 
       <View style={styles.goalsContainer}>
