@@ -1,7 +1,9 @@
+import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, View, FlatList, Button, Image } from 'react-native';
 import { GoalInput } from './components/GoalInput';
 import { GoalItem } from './components/GoalItem';
+StatusBar;
 
 export default function App() {
   const [goalText, setGoalText] = useState('');
@@ -31,37 +33,40 @@ export default function App() {
   const endAddGoalHandler = () => setShowModal(false);
 
   return (
-    <View style={styles.appContainer}>
-      <Button
-        title="Add New Goal"
-        onPress={startAddGoalHandler}
-        color="#5e0acc"
-      />
-
-      <GoalInput
-        showModal={showModal}
-        addGoalHandler={addGoalHandler}
-        goalInputHandler={goalInputHandler}
-        goalText={goalText}
-        endAddGoalHandler={endAddGoalHandler}
-      />
-
-      <View style={styles.goalsContainer}>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={goals}
-          renderItem={(itemData) => {
-            return (
-              <GoalItem
-                itemData={itemData}
-                deleteGoalHandler={() => deleteGoalHandler(itemData.item.id)}
-              />
-            );
-          }}
-          alwaysBounceVertical={false}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add New Goal"
+          onPress={startAddGoalHandler}
+          color="#a065f3"
         />
+
+        <GoalInput
+          showModal={showModal}
+          addGoalHandler={addGoalHandler}
+          goalInputHandler={goalInputHandler}
+          goalText={goalText}
+          endAddGoalHandler={endAddGoalHandler}
+        />
+
+        <View style={styles.goalsContainer}>
+          <FlatList
+            keyExtractor={(item) => item.id}
+            data={goals}
+            renderItem={(itemData) => {
+              return (
+                <GoalItem
+                  itemData={itemData}
+                  deleteGoalHandler={() => deleteGoalHandler(itemData.item.id)}
+                />
+              );
+            }}
+            alwaysBounceVertical={false}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
